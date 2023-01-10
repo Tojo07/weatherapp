@@ -1,0 +1,113 @@
+$breakpoints: (
+    "xs": 0px,
+    "sm": 480px,
+    "md": 720px,
+    "lg": 960px,
+    "xl": 1200px
+);
+
+
+@mixin xs {
+    @media (min-width: map-get($breakpoints, "xs")){
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: map-get($breakpoints, "sm")){
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: map-get($breakpoints, "lg")){
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: map-get($breakpoints, "md")){
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: map-get($breakpoints, "xl")) {
+        @content;
+    }
+}
+
+.sunny{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    video{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        @include xs {
+            width: auto;
+            height: 100%;
+        }
+        @include md {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .details{
+      background: rgba(103, 105, 106, 0.3);
+      border-radius: 30px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+      @include xs{
+        width: 50%;
+        min-height: 100px;
+      }
+      @include lg{
+        width: 30%;
+        min-height: 400px;
+      }
+      color: whitesmoke;
+      .town{
+        display: flex;
+        align-items: center;
+        h3{
+          padding: 10px;
+          font-size: 'large';
+        }
+      }
+      h1{
+        @include xs{
+          margin: 0%;
+          font-size: 40px;
+          line-height: 60px;
+        }
+        @include sm{
+          margin: 0%;
+          font-size: 60px;
+          line-height: 70px;
+        }
+        @include lg{
+          margin: 0%;
+          font-size: 100px;
+          line-height: 100px;
+        }
+      }
+      .extra{ 
+        display: flex;
+        align-items: center;
+        h3{
+          padding: 10px;
+          font-size: 'large';
+        }
+      }
+    }
+
+}
